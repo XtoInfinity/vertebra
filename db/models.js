@@ -1,23 +1,36 @@
 const { Schema, model } = require('mongoose');
 
-let InstanceSchema = Schema({
-    name: { type: String, required: [true, 'User Name is mandatory'] },
-    profileLink: { type: String, unique: true },
-    location: { type: String },
-    education: { type: String },
-    chalengeSolved: { type: Number },
-    solutionSubmitted: { type: Number },
-    solutionAccepted: { type: Number },
-    overallRank: { type: Number },
-    followers: { type: Number },
-    following: { type: Number },
-    vote: { type: Number },
-    deviceType: { type: String },
+let UserSchema = Schema({
+    appId: { type: String, },
+    role: { type: String, },
+    appId: { type: String, },
+    username: { type: String },
+    password: { type: String }
+});
+
+let BugSchema = Schema({
+    userId: { type: Schema.Types.ObjectId, required: [true, 'User Id is mandatory'] },
+    appId: { type: String, required: [true, 'App Id is mandataory'] },
+    category: { type: String },
+    description: { type: String },
+    status: { type: String, default: "open" },
+    screenshot: { type: String },
     updated: { type: Date, default: Date.now() }
 });
 
-let InstanceModel = model('instance', InstanceSchema);
+let MessageSchema = Schema({
+    userId: { type: Schema.Types.ObjectId, ref: 'user' },
+    message: { type: String },
+    timestamp: { type: Date, default: Date.now() }
+})
+
+// Register models in mongodb
+let BugModel = model('bug', BugSchema);
+let UserModel = model('user', UserSchema);
+let MessageModel = model('message', MessageSchema);
 
 module.exports = {
-    InstanceModel
+    BugModel,
+    UserModel,
+    MessageModel
 };
