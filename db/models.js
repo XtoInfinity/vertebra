@@ -24,13 +24,22 @@ let MessageSchema = Schema({
     timestamp: { type: Date, default: Date.now() }
 })
 
+let AnnouncementSchema = Schema({
+    title: { type: String },
+    description: { type: String },
+    image: { type: String },
+    timestamp: { type: Date, default: Date.now() }
+})
+
 // Register models in mongodb
 let BugModel = model('bug', BugSchema);
 let UserModel = model('user', UserSchema);
 let MessageModel = model('message', MessageSchema);
+let AnnouncementModel = model('announcement', AnnouncementSchema);
 
 module.exports = {
     BugModel,
     UserModel,
-    MessageModel
+    MessageModel,
+    AnnouncementModel
 };
