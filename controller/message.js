@@ -1,6 +1,6 @@
 const { get } = require('lodash');
 
-let { createMessage } = require('../db/queries');
+let { createMessage, fetchMessagesForUser } = require('../db/queries');
 const { getLoggerInstance } = require('../helper/logger');
 
 const logger = getLoggerInstance('controllers/message');
@@ -22,7 +22,24 @@ addMessage = async (req, res, next) => {
     });
 }
 
+getAllMessages = async (req, res, next) => {
+    let userId = get(req, ['query', 'userId']);
+    let messageList = [];
+    try {
+        messageList = await fetchMessagesForUser(userId);
+        logger.info(`All messages for User ${userId} fetched successfully`);
+    } catch (e) {
+        logger.error(e);
+        let err = createError(`Messages Fetch failed for user ${userId}`, 500, ERRORCODE.UNKNOWN_ERROR);
+        return next(err);
+    }
+
+    return res.json({
+        result: messageList
+    });
+}
 
 module.exports = {
-    addMessage
+    addMessage,
+    getAllMessages
 }

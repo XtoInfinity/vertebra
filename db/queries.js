@@ -14,9 +14,9 @@ createBug = async (bugInstance) => {
 
 fetchBugsForApp = async (appId) => {
     let bugList = await BugModel.find(
-        { appId: appId },
+        { appId },
     ).sort(
-        { id: -1 }
+        { _id: -1 }
     ).lean();
 
     return bugList;
@@ -34,10 +34,21 @@ createMessage = async (messageInstance) => {
     await newMessage.save();
 }
 
+fetchMessagesForUser = async (userId) => {
+    let messageList = await MessageModel.find(
+        { userId },
+    ).sort(
+        { _id: -1 }
+    ).lean();
+
+    return messageList;
+}
+
 module.exports = {
     createBug,
     createUser,
     fetchBugsForApp,
     updateBugStatusById,
-    createMessage
+    createMessage,
+    fetchMessagesForUser
 };
