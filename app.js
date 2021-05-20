@@ -25,6 +25,7 @@ let sess = {
 let bugRouter = require('./routes/bug');
 let userRouter = require('./routes/user');
 let messageRouter = require('./routes/message');
+let chatbotRouter = require('./routes/chatbot');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -61,6 +62,7 @@ app.use(session(sess));
 app.use('/api/bug', bugRouter);
 app.use('/api/user', userRouter);
 app.use('/api/message', messageRouter);
+app.use('/api/chatbot', chatbotRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
