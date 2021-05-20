@@ -3,6 +3,7 @@ const { get } = require('lodash');
 
 const { createError } = require('../controller/error');
 const { getLoggerInstance } = require('../helper/logger');
+const ERRORCODE = require('../helper/errorcodes');
 
 const logger = getLoggerInstance('scripts/chatbot');
 
