@@ -15,7 +15,10 @@ fetchChatbotResponse = (req, res, next) => {
 
     PythonShell.run("./scripts/chatbot.py", { args: [`'~${question}~'`] }, async (err, result) => {
         if (err) throw err;
-        const str = result.toString();
+        let str;
+        if (result == null)
+            str = "Sorry! I did not understand."
+        str = result.toString();
         const response = str.substring(str.indexOf("%"), str.length).trim();
         console.log(response);
         // const msg = await switchTag(response, body);
