@@ -18,7 +18,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "run": "source ./scripts/allspark/bin/activate && nodemon ./bin/www"
   },
   "repository": {
     "type": "git",
