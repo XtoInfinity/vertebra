@@ -13,7 +13,7 @@ fetchChatbotResponse = (req, res, next) => {
     let dataToSend;
     console.log(question);
 
-    PythonShell.run("./scripts/chatbot.py", { args: [question] }, async (err, result) => {
+    PythonShell.run("./scripts/chatbot.py", { args: [`'~${question}~'`] }, async (err, result) => {
         if (err) throw err;
         const str = result.toString();
         const response = str.substring(str.indexOf("%"), str.length).trim();
