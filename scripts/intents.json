@@ -11,59 +11,34 @@
       ]
     },
     {
-      "tag": "goodbye",
-      "patterns": ["Bye", "See you later", "Goodbye"]
-    },
-    {
-      "tag": "thanks",
-      "patterns": ["Thanks", "Thank you", "That's helpful"]
-    },
-    {
-      "tag": "hours",
+      "tag": "working",
       "patterns": [
-        "What hours are you open?",
-        "What are your hours?",
-        "When are you open?",
-        "shop timings",
-        "store timings",
-        "closing time",
-        "opening time",
-        "what time are you available",
-        "when can i come",
-        "what time can i come"
+        "What does this application do?",
+        "Functions",
+        "Features of this app"
       ]
     },
     {
-      "tag": "location",
-      "patterns": [
-        "What is your location?",
-        "Where are you located?",
-        "What is your address?",
-        "Where is your restaurant situated?",
-        "Store address",
-        "Where should I come",
-        "Send address"
-      ]
-    },
-    {
-      "tag": "payments",
+      "tag": "payment",
       "patterns": [
         "Do you take credit cards?",
         "Do you accept Mastercard?",
         "Are you cash only?",
         "What are your payment methods",
+        "What payment methods do you accept",
         "Payment type",
         "How can I pay"
       ]
     },
     {
-      "tag": "deliveryoption",
+      "tag": "delivery",
       "patterns": [
         "Do you provide home delivery?",
         "Do you deliver the food?",
         "What are the home delivery options?",
-        "Delivery types"
+        "Delivery types",
+        "What type of delivery options are available?"
       ]
-      }
+    }
   ]
 }

@@ -13,7 +13,7 @@ fetchChatbotResponse = (req, res, next) => {
     console.log(question);
 
     // spawn new child process to call the python script
-    const python = spawn('python', ['./scripts/chatbot.py', question]);
+    const python = spawn('python', ['./scripts/chatbot.py', "\'question\'"]);
     // collect data from script
     python.stdout.on('data', function (data) {
         console.log('Pipe data from python script ...');

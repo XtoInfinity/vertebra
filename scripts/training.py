@@ -34,7 +34,7 @@ for intent in intents['intents']:
 words = [lemmetizer.lemmatize(word)
          for word in words if word not in ignore_letters]
 
-words = sorted(set(words)) 
+words = sorted(set(words))
 classes = sorted(set(classes))
 
 pickle.dump(words, open(file_url+"words.pkl", "wb"))
@@ -51,7 +51,6 @@ for document in documents:
 
     for word in words:
         bag.append(1) if word in word_patterns else bag.append(0)
-
 
     output_row = list(output_empty)
     output_row[classes.index(document[1])] = 1
